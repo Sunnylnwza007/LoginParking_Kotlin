@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import buu.informatics.s59160090.loginparking.databinding.FragmentParkingBinding
+import org.w3c.dom.Text
 
 /**
  * A simple [Fragment] subclass.
@@ -26,43 +27,43 @@ class ParkingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentParkingBinding>(inflater,
-            R.layout.fragment_login,container,false)
-        hide();
+            R.layout.fragment_parking,container,false)
+//          hide();
         binding.buttonPark1.setOnClickListener {
             binding.myPark = myPark1
             park = 1
-            show()
-            setColor()
+            show(binding)
+            setColor(binding)
         }
 
         binding.buttonPark2.setOnClickListener {
             binding.myPark = myPark2
             park = 2
-            show()
-            setColor()
+            show(binding)
+            setColor(binding)
         }
 
         binding.buttonPark3.setOnClickListener {
             binding.myPark = myPark3
             park = 3
-            show()
-            setColor()
+            show(binding)
+            setColor(binding)
         }
         binding.buttonUpdate.setOnClickListener{
-            update(it)
-            setColor()
+            update(binding)
+            setColor(binding)
         }
 
         binding.buttonDel.setOnClickListener {
-            del(it)
-            setColor()
+            del(binding)
+            setColor(binding)
         }
 
         return binding.root
     }
 
-    private fun update(view: View){
-        binding.apply {
+    private fun update(fragment: FragmentParkingBinding){
+        fragment.apply {
             if (park==1){
                 myPark1.no = editText1.text.toString()
                 myPark1.owner = editText2.text.toString()
@@ -94,8 +95,8 @@ class ParkingFragment : Fragment() {
         }
     }
 
-    private fun del(view: View){
-        binding.apply {
+    private fun del(fragment: FragmentParkingBinding){
+        fragment.apply {
             if (park==1){
                 myPark1.no = ""
                 myPark1.owner = ""
@@ -118,22 +119,22 @@ class ParkingFragment : Fragment() {
         }
     }
 
-    private fun hide(){
-        binding.apply {
-            textView.visibility = View.GONE
-            textView2.visibility = View.GONE
-            textView3.visibility = View.GONE
-            editText1.visibility = View.GONE
-            editText2.visibility = View.GONE
-            editText3.visibility = View.GONE
-            buttonUpdate.visibility = View.GONE
-            buttonDel.visibility = View.GONE
-        }
+//    private fun hide(){
+//        binding.apply {
+//            textView.visibility = View.GONE
+//            textView2.visibility = View.GONE
+//            textView3.visibility = View.GONE
+//            editText1.visibility = View.GONE
+//            editText2.visibility = View.GONE
+//            editText3.visibility = View.GONE
+//            buttonUpdate.visibility = View.GONE
+//            buttonDel.visibility = View.GONE
+//        }
+//
+//    }
 
-    }
-
-    private fun show(){
-        binding.apply {
+    private fun show(fragment: FragmentParkingBinding){
+        fragment.apply {
             textView.visibility = View.VISIBLE
             textView2.visibility = View.VISIBLE
             textView3.visibility = View.VISIBLE
@@ -144,8 +145,8 @@ class ParkingFragment : Fragment() {
             buttonDel.visibility = View.VISIBLE
         }
     }
-    private fun setColor(){
-        binding.apply {
+    private fun setColor(fragment: FragmentParkingBinding){
+        fragment.apply {
             if (myPark1.no.equals("")){
                 buttonPark1.setBackgroundColor(Color.parseColor("#ff99cc00"))
             }else{
