@@ -6,4 +6,11 @@
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="avaliable">ว่าง</string>
+    <string name="non">ไม่ว่าง</string>
+    <string name="no">ทะเบียน</string>
+    <string name="owner">เจ้าของ</string>
+    <string name="tel">เบอร์โทร</string>
+    <string name="update">Update</string>
+    <string name="del">Delete</string>
 </resources>
