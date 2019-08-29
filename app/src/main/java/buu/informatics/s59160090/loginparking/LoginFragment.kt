@@ -30,7 +30,7 @@ class LoginFragment : Fragment() {
                 if (username.text.toString().equals("sunny") && password.text.toString().equals("1234")){
                     view.findNavController().navigate(R.id.action_loginFragment_to_parkingFragment)
                 }else{
-                    Toast.makeText(context,"Username or password is wrong.",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Username or password is not match.",Toast.LENGTH_SHORT).show()
                 }
 
             }
