@@ -13,4 +13,5 @@
     <string name="tel">เบอร์โทร</string>
     <string name="update">Update</string>
     <string name="del">Delete</string>
+    <string name="info">Info</string>
 </resources>
