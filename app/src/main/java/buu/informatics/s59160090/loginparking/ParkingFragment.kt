@@ -3,11 +3,11 @@ package buu.informatics.s59160090.loginparking
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160090.loginparking.databinding.FragmentParkingBinding
 import org.w3c.dom.Text
 
@@ -58,6 +58,7 @@ class ParkingFragment : Fragment() {
             del(binding)
             setColor(binding)
         }
+        setHasOptionsMenu(true)
 
         return binding.root
     }
@@ -174,6 +175,16 @@ class ParkingFragment : Fragment() {
                 buttonPark3.setBackgroundColor(Color.parseColor("#673fff"))
             }
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.options_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!,
+            view!!.findNavController())
+                || super.onOptionsItemSelected(item)
     }
 
 
